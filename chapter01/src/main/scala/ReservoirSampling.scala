@@ -32,10 +32,11 @@ object ReservoirSampling extends App {
     }
   }
 
+  println(s"Current Path: ${new java.io.File(".").getCanonicalPath}")
   val numLines=15
   val w = new java.io.FileWriter(new java.io.File("out.txt"))
 
-  val lines = io.Source.fromFile("data/iris/in.txt").getLines
+  val lines = io.Source.fromFile("chapter01/data/iris/in.txt").getLines
   reservoirSample(lines, numLines).foreach { s =>
     w.write(s + scala.util.Properties.lineSeparator)
   }
